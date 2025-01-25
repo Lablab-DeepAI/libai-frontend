@@ -69,5 +69,5 @@ This project is currently in its **initial development phase**. The structure an
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/libai.git
+   git clone https://github.com/your-username/libai-frontend.git
    cd libai
