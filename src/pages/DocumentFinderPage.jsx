@@ -5,14 +5,21 @@ import axios from 'axios';
 const DocumentFinderPage = () => {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
+  const [error, setError] = useState('');
 
   const searchDocuments = async () => {
+    if (!query) {
+      setError('Please enter a search query.');
+      return;
+    }
+
     try {
-      // Replace with your FastAPI backend endpoint
-      const response = await axios.get(`http://localhost:8000/api/search?q=${query}`);
+      const response = await axios.get(`http://localhost:5000/search?q=${query}`);
       setResults(response.data);
-    } catch (error) {
-      console.error('Error searching documents:', error);
+      setError('');
+    } catch (err) {
+      setError('Failed to fetch search results. Please try again.');
+      console.error(err);
     }
   };
 
@@ -34,6 +41,7 @@ const DocumentFinderPage = () => {
           Search
         </button>
       </div>
+      {error && <p className="text-red-500 mt-4">{error}</p>}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {results.map((result) => (
           <div
