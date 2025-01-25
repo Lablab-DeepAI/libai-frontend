@@ -1,6 +1,7 @@
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import AppLayout from "@/layouts/app-layout";
+import RealTimeInternetSpeed from "@/components/internet-check";
 
 export default async function Page() {
   const supabase = await createClient();
@@ -12,7 +13,9 @@ export default async function Page() {
   }
   return (
     <AppLayout>
-      <>I am dashboard</>
+      <>
+        <RealTimeInternetSpeed />
+      </>
     </AppLayout>
   );
 }

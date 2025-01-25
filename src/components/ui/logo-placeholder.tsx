@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 export const Logo = ({ width = 50, height = 50 }) => (
   <svg
     width={width}

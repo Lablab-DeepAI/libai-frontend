@@ -23,8 +23,8 @@ import {
   SidebarRail,
 } from "@/components/ui/sidebar";
 import { NavUser } from "./ui/nav-user";
-import { Logo } from "./ui/logo-placeholder";
 import { getUserDetail, signOutAction } from "@/app/action";
+import Image from "next/image";
 
 const data = {
   navMain: [
@@ -107,10 +107,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             <SidebarMenuButton size="lg" asChild>
               <a href="/dashboard">
                 <div className="flex aspect-square size-8 items-center justify-center rounded-lg text-sidebar-primary-foreground">
-                  <Logo />
+                  <img src="./libai.png" width={50} height={50} alt="logo" />
                 </div>
                 <div className="flex flex-col gap-0.5 leading-none">
-                  <span className="font-semibold">Rumsan AI</span>
+                  <span className="font-semibold">LibAI</span>
                   <span className="">v1.0.0</span>
                 </div>
               </a>
