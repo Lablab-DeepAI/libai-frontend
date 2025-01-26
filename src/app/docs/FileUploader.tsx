@@ -71,7 +71,7 @@ export default function FileUploader() {
 
       try {
         const response = await axios.post(
-          `${process.env.NEXT_API_URL}/upload`,
+          `${process.env.NEXT_PUBLIC_API_URL}/upload`,
           formData,
           {
             headers: {

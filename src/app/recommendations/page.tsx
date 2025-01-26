@@ -18,7 +18,7 @@ export default function ResourceCards() {
       setIsLoading(true);
       try {
         const response = await fetch(
-          `${process.env.NEXT_API_URL}/api/resources`,
+          `${process.env.NEXT_PUBLIC_API_URL}/api/resources`,
           {
             method: "POST",
             headers: {
