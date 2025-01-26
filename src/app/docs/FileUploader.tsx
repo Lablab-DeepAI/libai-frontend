@@ -24,6 +24,7 @@ export default function FileUploader() {
   const [file, setFile] = useState<FileWithPreview | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [isUploading, setIsUploading] = useState(false);
+  const [msg, setMsg] = useState<string | null>(null);
 
   const onDrop = useCallback((acceptedFiles: File[], rejectedFiles: any[]) => {
     setError(null);
@@ -65,6 +66,7 @@ export default function FileUploader() {
     if (file) {
       setIsUploading(true);
       setError(null);
+      setMsg(null);
 
       const formData = new FormData();
       formData.append("file", file);
@@ -79,7 +81,7 @@ export default function FileUploader() {
             },
           }
         );
-        console.log("File uploaded successfully:", response.data);
+        setMsg(response.data.message);
       } catch (err) {
         console.error("Error uploading file:", err);
         setError(
@@ -125,6 +127,7 @@ export default function FileUploader() {
         </p>
       </div>
 
+      {msg && <p className="text-green-500 mt-2">{msg}</p>}
       {error && <p className="text-red-500 mt-2">{error}</p>}
 
       {file && (
