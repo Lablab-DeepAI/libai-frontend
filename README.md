@@ -20,21 +20,20 @@ This project is currently in its **initial development phase**. The structure an
 ### What's Working:
 
 - Basic project structure and routing.
-- Core backend functionality (e.g., file upload, document recommendations).
-- Placeholder frontend components.
+- Core backend functionality (e.g., file upload, document recommendations, RAG with your documents).
+- User management using Supabase
 
 ### What Needs Improvement:
 
 - Frontend-backend alignment: Some API endpoints need to be properly connected to the frontend.
-- Additional features: Enhancements like user authentication, advanced search, and responsive design are yet to be implemented.
+- Additional features: Content filtering, Advanced search, Note sharing, Documents deduplication, Preference filtering and responsive design are yet to be implemented.
 
 ## Features
 
 - **User Management**: User login and signup with forget password and recover password using Supabase.
 - **Smart Document Finder**: Search for books, articles, and theses.
-- **AI Summarization**: Generate concise summaries of documents.
 - **Interactive Q&A**: Ask questions and get AI-generated answers.
-- **Document Recommendations**: Get personalized recommendations based on user activity or document similarity.
+- **Document Recommendations**: Get personalized recommendations based on user internet or document similarity.
 
 ## Installation
 
@@ -82,6 +81,7 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/dashboard/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Backend
+
+- You can check the backend code in this github [repo](https://github.com/Lablab-DeepAI/Backend)
