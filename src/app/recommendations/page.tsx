@@ -13,7 +13,6 @@ export default function ResourceCards() {
   const [resources, setResources] = useState<Resource[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [speed, setSpeed] = useState<number | null>(null);
-  const speedLimit: number = 5;
 
   // Function to test internet speed
   const testInternetSpeed = async () => {
