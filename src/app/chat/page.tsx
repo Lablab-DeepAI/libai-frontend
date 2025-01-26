@@ -1,6 +1,5 @@
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
-import AppLayout from "@/layouts/app-layout";
 import Chat from "./Chat";
 
 export default async function Home() {
@@ -11,9 +10,5 @@ export default async function Home() {
   if (!user) {
     return redirect("/auth/login");
   }
-  return (
-    <AppLayout>
-      <Chat />
-    </AppLayout>
-  );
+  return <Chat />;
 }

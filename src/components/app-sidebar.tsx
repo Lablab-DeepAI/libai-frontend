@@ -33,7 +33,7 @@ const data = {
       items: [
         {
           title: "Upload Doc",
-          url: "/docs/upload",
+          url: "/docs",
         },
         {
           title: "Chat with AI",
