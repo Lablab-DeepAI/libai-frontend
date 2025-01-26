@@ -69,7 +69,7 @@ export default function Chat() {
         {
           id: messages.length + 1,
           role: "ai",
-          content: "Sorry, I encountered an error. Please try again.",
+          content: "Reached API Limit",
         },
       ]);
     } finally {

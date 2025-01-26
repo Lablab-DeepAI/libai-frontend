@@ -39,13 +39,13 @@ export default function ResourceCards() {
       try {
         await testInternetSpeed();
         const response = await fetch(
-          `${process.env.NEXT_PUBLIC_API_URL}/api/resources`,
+          `${process.env.NEXT_PUBLIC_API_URL}/resources`,
           {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify({ speed }), // You can adjust this as needed
+            body: JSON.stringify({ bandwidth: speed }), // You can adjust this as needed
           }
         );
         const data = await response.json();
@@ -56,7 +56,6 @@ export default function ResourceCards() {
         setIsLoading(false);
       }
     };
-
     fetchResources();
   }, [speed]);
 
@@ -77,18 +76,27 @@ export default function ResourceCards() {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      {resources.map((resource, index) => (
-        <Card
-          key={index}
-          className="cursor-pointer hover:shadow-lg transition-shadow duration-200"
-          onClick={() => window.open(resource.url, "_blank")}
-        >
-          <CardHeader>
-            <CardTitle>{resource.name}</CardTitle>
-            <CardDescription>{resource.url}</CardDescription>
-          </CardHeader>
-        </Card>
-      ))}
+      {resources.length > 0 ? (
+        resources.map((resource, index) => (
+          <Card
+            key={index}
+            className="cursor-pointer hover:shadow-lg transition-shadow duration-200"
+            onClick={() =>
+              window.open(
+                `${process.env.NEXT_PUBLIC_API_URL}${resource.url}`,
+                "_blank"
+              )
+            }
+          >
+            <CardHeader>
+              <CardTitle>{resource.name}</CardTitle>
+              <CardDescription>{resource.url}</CardDescription>
+            </CardHeader>
+          </Card>
+        ))
+      ) : (
+        <div>No Resources found</div>
+      )}
     </div>
   );
 }
