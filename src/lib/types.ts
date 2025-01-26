@@ -26,3 +26,8 @@ export type DBError = Error & {
   code: number;
   keyPattern: Record<string, string>;
 };
+
+export interface Resource {
+  name: string;
+  url: string;
+}

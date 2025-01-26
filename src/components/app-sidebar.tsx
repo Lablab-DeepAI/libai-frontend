@@ -24,7 +24,6 @@ import {
 } from "@/components/ui/sidebar";
 import { NavUser } from "./ui/nav-user";
 import { getUserDetail, signOutAction } from "@/app/action";
-import Image from "next/image";
 
 const data = {
   navMain: [
@@ -34,34 +33,15 @@ const data = {
       items: [
         {
           title: "Upload Doc",
-          url: "/docs/upload",
-        },
-        {
-          title: "Find Doc",
           url: "/docs",
         },
         {
-          title: "QA Page",
-          url: "/qa",
+          title: "Chat with AI",
+          url: "/chat",
         },
         {
           title: "Recommendations",
           url: "/recommendations",
-        },
-        {
-          title: "Summarizer",
-          url: "/summarization",
-        },
-      ],
-    },
-
-    {
-      title: "API Management",
-      url: "/apis",
-      items: [
-        {
-          title: "Manage API",
-          url: "/apis",
         },
       ],
     },
@@ -107,7 +87,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             <SidebarMenuButton size="lg" asChild>
               <a href="/dashboard">
                 <div className="flex aspect-square size-8 items-center justify-center rounded-lg text-sidebar-primary-foreground">
-                  <img src="./libai.png" width={50} height={50} alt="logo" />
+                  <img src="libai.png" width={50} height={50} alt="logo" />
                 </div>
                 <div className="flex flex-col gap-0.5 leading-none">
                   <span className="font-semibold">LibAI</span>
