@@ -17,7 +17,7 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "AI Admin Portal",
-  description: "AI Admin Portal by Rumsan",
+  description: "AI Admin Portal of LibAI",
 };
 
 export default function RootLayout({

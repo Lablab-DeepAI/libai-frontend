@@ -36,31 +36,12 @@ const data = {
           url: "/docs/upload",
         },
         {
-          title: "Find Doc",
-          url: "/docs",
-        },
-        {
-          title: "QA Page",
-          url: "/qa",
+          title: "Chat with AI",
+          url: "/chat",
         },
         {
           title: "Recommendations",
           url: "/recommendations",
-        },
-        {
-          title: "Summarizer",
-          url: "/summarization",
-        },
-      ],
-    },
-
-    {
-      title: "API Management",
-      url: "/apis",
-      items: [
-        {
-          title: "Manage API",
-          url: "/apis",
         },
       ],
     },
