@@ -11,12 +11,34 @@ import type { Resource } from "@/lib/types";
 
 export default function ResourceCards() {
   const [resources, setResources] = useState<Resource[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [speed, setSpeed] = useState<number | null>(null);
+  const speedLimit: number = 5;
+
+  // Function to test internet speed
+  const testInternetSpeed = async () => {
+    const imageUrl =
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Pizigani_1367_Chart_1MB.jpg/2560px-Pizigani_1367_Chart_1MB.jpg"; // A file of known size
+    const fileSizeInBytes = 1440000; // file size in bytes
+    const startTime = performance.now();
+    try {
+      await fetch(imageUrl, { cache: "no-cache" });
+      const endTime = performance.now();
+      const durationInSeconds = (endTime - startTime) / 1000;
+      const speedInMbps =
+        (fileSizeInBytes * 8) / (durationInSeconds * 1024 * 1024); // Mbps
+      setSpeed(speedInMbps);
+    } catch (error) {
+      console.error("Error testing internet speed:", error);
+      setSpeed(null);
+    }
+  };
 
   useEffect(() => {
     const fetchResources = async () => {
       setIsLoading(true);
       try {
+        await testInternetSpeed();
         const response = await fetch(
           `${process.env.NEXT_PUBLIC_API_URL}/api/resources`,
           {
@@ -24,7 +46,7 @@ export default function ResourceCards() {
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify({ speed: "fast" }), // You can adjust this as needed
+            body: JSON.stringify({ speed }), // You can adjust this as needed
           }
         );
         const data = await response.json();
@@ -37,7 +59,7 @@ export default function ResourceCards() {
     };
 
     fetchResources();
-  }, []);
+  }, [speed]);
 
   if (isLoading) {
     return (
