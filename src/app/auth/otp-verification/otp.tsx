@@ -4,7 +4,7 @@ import { useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-import LogoHolder from "@/components/ui/logo-placeholder";
+import { LogoImageHolder } from "@/components/ui/logo-placeholder";
 import {
   InputOTP,
   InputOTPGroup,
@@ -65,7 +65,7 @@ export default function InputOTPForm() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen px-4">
-      <LogoHolder companyName="Rumsan AI" />
+      <LogoImageHolder image="/libai.png" companyName="LibAI" />
       <Card className="w-full max-w-md text-center">
         <CardHeader>
           <CardTitle>One Time Password</CardTitle>
